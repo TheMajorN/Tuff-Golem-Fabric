@@ -6,7 +6,8 @@
   "name": "Tuff Golem",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "TheMajorN"
+    "TheMajorN",
+    "JakeItEasy"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -14,7 +15,7 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/tuffgolem/textures/entities/tuff_golem.png",
 
   "environment": "*",
   "entrypoints": {
