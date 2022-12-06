@@ -14,5 +14,5 @@ public class ModEntities {
     public static final EntityType<TuffGolemEntity> TUFF_GOLEM = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(TuffGolem.MOD_ID, "tuff_golem"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, TuffGolemEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.6F, 0.9F)).build());
+                    .dimensions(EntityDimensions.changing(0.6F, 0.9F)).build());
 }

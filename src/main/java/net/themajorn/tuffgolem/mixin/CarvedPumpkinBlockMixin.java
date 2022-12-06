@@ -49,7 +49,7 @@ public class CarvedPumpkinBlockMixin extends HorizontalFacingBlock implements We
 
             TuffGolemEntity tuffGolem = ModEntities.TUFF_GOLEM.create(world);
             BlockPos blockPos = result.translate(0, 2, 0).getBlockPos();
-            tuffGolem.refreshPositionAndAngles((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.05, (double)blockPos.getZ() + 0.5, 0.0F, 0.0F);
+            tuffGolem.refreshPositionAndAngles((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 2.0, (double)blockPos.getZ() + 0.5, 0.0F, 0.0F);
             world.spawnEntity(tuffGolem);
             var6 = world.getNonSpectatingEntities(ServerPlayerEntity.class, tuffGolem.getBoundingBox().expand(5.0)).iterator();
 

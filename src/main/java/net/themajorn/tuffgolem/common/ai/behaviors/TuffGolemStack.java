@@ -61,16 +61,15 @@ public class TuffGolemStack extends Task<TuffGolemEntity> {
         TuffGolemEntity stackTarget = this.getStackTarget(tuffGolem);
         LookTargetUtil.lookAtAndWalkTowardsEachOther(tuffGolem, stackTarget, this.speedModifier);
         if (tuffGolem.isInRange(stackTarget, 2.0D)) {
-            if (l >= this.stackAtTime) {
+            if (l >= this.stackAtTime && !serverLevel.isClient) {
                 tuffGolem.startRiding(stackTarget);
                 tuffGolem.setBodyYaw(stackTarget.getBodyYaw());
                 tuffGolem.resetDimensionState();
-                tuffGolem.setPassengersRidingOffset(0.9D);
+                tuffGolem.setMountedHeightOffset(0.9D);
+                tuffGolem.getBrain().forget(ModMemoryModules.STACK_TARGET);
                 stackTarget.setHeightDimensionState(stackTarget.getNumOfTuffGolemsAbove(stackTarget, 1));
                 stackTarget.setWidthDimensionState(2);
-                stackTarget.setPassengersRidingOffset(stackTarget.getNumOfTuffGolemsAbove(stackTarget, 1) - 0.1);
-                TuffGolem.LOGGER.info("There are " + stackTarget.getNumOfTuffGolemsAbove(stackTarget, 1) + " Tuff Golems stacked.");
-                tuffGolem.getBrain().forget(ModMemoryModules.STACK_TARGET);
+                stackTarget.setMountedHeightOffset(stackTarget.getNumOfTuffGolemsAbove(stackTarget, 1) - 0.1);
                 stackTarget.getBrain().forget(ModMemoryModules.STACK_TARGET);
             }
         }
